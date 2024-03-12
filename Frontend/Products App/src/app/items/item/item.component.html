@@ -1,0 +1,33 @@
+<div class="container-background">
+  <div class="item-container mt-5">
+    <div class="card-container bg-light">
+      <input type="radio" name="colors-btn" id="color-1" checked />
+      <div class="shoe-area">
+        <div class="floating-div">
+          <div class="shoe-1 d-flex justify-content-center">
+            <img *ngIf="hasImg" [src]="item.imgUrl" alt="item" />
+            <img
+              *ngIf="!hasImg"
+              src="../../../assets/images/item1.jpg"
+              alt="item"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="text-area">
+        <div class="heading-area">
+          <h2>{{ item.name }}</h2>
+          <h4>{{ item.brandName }}</h4>
+        </div>
+
+        <p class="paragraph-area">{{ item.description }}</p>
+        <div class="price-and-buy-btn">
+          <h2 class="price-1">$ {{ item.price }}</h2>
+          <a class="buy-btn back-to-items text-primary" (click)="backToItems()"
+            >Back to Items &RightArrow;</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,240 @@
+<form
+  [formGroup]="createItem"
+  enctype="multipart/form-data"
+  class="needs-validation mt-5 mb-5"
+  novalidate
+  (ngSubmit)="onSubmit()"
+>
+  <br />
+  <div
+    class="container bg-light col-md-9 col-11 p-3"
+    style="border-radius: 10px"
+  >
+    <p
+      class="bg-light"
+      style="font-size: 2rem; font-weight: bold; color: #104c74"
+      *ngIf="!isUpdateMode"
+    >
+      CREATE ITEM
+    </p>
+    <p
+      class="bg-light"
+      style="font-size: 2rem; font-weight: bold; color: #104c74"
+      *ngIf="isUpdateMode"
+    >
+      UPDATE ITEM
+    </p>
+    <hr />
+
+    <div class="row">
+      <input type="hidden" name="search" value="@search" />
+      <input type="hidden" name="pageNumber" value="@pageNumber" />
+
+      <div class="col-2">
+        <label class="form-label pt-2" style="font-size: 20px">Name:</label>
+      </div>
+      <div class="col-10 pb-3">
+        <input
+          [ngClass]="{
+            'is-valid':
+              createItem.get('name').valid &&
+              (createItem.get('name').dirty ||
+                createItem.get('name').touched ||
+                isUpdateMode),
+            'is-invalid':
+              createItem.get('name').invalid &&
+              (createItem.get('name').dirty ||
+                createItem.get('name').touched ||
+                isUpdateMode)
+          }"
+          formControlName="name"
+          class="form-control"
+          [(ngModel)]="item.name"
+          placeholder="Enter item name.."
+        />
+        <span
+          *ngIf="
+            !createItem.get('name').valid && createItem.get('name').touched
+          "
+          class="text-danger"
+          >Enter a valid Name!</span
+        >
+      </div>
+
+      <div class="col-2">
+        <label class="form-label pt-2" style="font-size: 20px">Price:</label>
+      </div>
+      <div class="col-10 pb-3">
+        <div class="col-3">
+          <input
+            [ngClass]="{
+              'is-valid':
+                createItem.get('price').valid &&
+                (createItem.get('price').dirty ||
+                  createItem.get('price').touched ||
+                  isUpdateMode),
+              'is-invalid':
+                createItem.get('price').invalid &&
+                (createItem.get('price').dirty ||
+                  createItem.get('price').touched ||
+                  isUpdateMode)
+            }"
+            formControlName="price"
+            type="number"
+            class="form-control"
+            [(ngModel)]="item.price"
+            placeholder="Add price.."
+          />
+          <span
+            *ngIf="
+              !createItem.get('price').valid && createItem.get('price').touched
+            "
+            class="text-danger"
+            >Enter a valid Price!</span
+          >
+        </div>
+      </div>
+
+      <div class="col-2">
+        <label class="control-label pt-2" style="font-size: 20px"
+          >Description:</label
+        >
+      </div>
+      <div class="col-10 pb-3">
+        <textarea
+          [ngClass]="{
+            'is-valid':
+              createItem.get('description').valid &&
+              (createItem.get('description').dirty ||
+                createItem.get('description').touched ||
+                isUpdateMode),
+            'is-invalid':
+              createItem.get('description').invalid &&
+              (createItem.get('description').dirty ||
+                createItem.get('description').touched ||
+                isUpdateMode)
+          }"
+          formControlName="description"
+          class="form-control"
+          rows="5"
+          [(ngModel)]="item.description"
+          placeholder="Enter description.."
+        ></textarea>
+        <span class="text-danger"></span>
+      </div>
+
+      <div class="col-2">
+        <label class="control-label pt-2" style="font-size: 20px">Image:</label>
+      </div>
+      <div class="col-10 pb-3">
+        <input
+          [ngClass]="{
+            'is-valid':
+              createItem.get('image').valid &&
+              (createItem.get('image').dirty ||
+                createItem.get('image').touched ||
+                isUpdateMode),
+            'is-invalid':
+              createItem.get('image').invalid &&
+              (createItem.get('image').dirty ||
+                createItem.get('image').touched ||
+                isUpdateMode)
+          }"
+          formControlName="image"
+          class="form-control"
+          type="file"
+          id="formFile"
+          pattern=".*\.(jpg|jpeg|png|img)$"
+          placeholder="Choose item image.."
+          (change)="onFileSelect($event)"
+        />
+        <span
+          *ngIf="
+            !createItem.get('image').valid && createItem.get('image').touched
+          "
+          class="text-danger"
+          >Enter a valid Image!</span
+        >
+      </div>
+
+      <div class="col-2">
+        <label class="control-label pt-2" style="font-size: 20px">Brand:</label>
+      </div>
+      <div class="col-10 pb-3">
+        <input
+          [ngClass]="{
+            'is-valid':
+              createItem.get('brand').valid &&
+              (createItem.get('brand').dirty ||
+                createItem.get('brand').touched ||
+                isUpdateMode),
+            'is-invalid':
+              createItem.get('brand').invalid &&
+              (createItem.get('brand').dirty ||
+                createItem.get('brand').touched ||
+                isUpdateMode)
+          }"
+          formControlName="brand"
+          class="form-control"
+          [(ngModel)]="item.brandName"
+          placeholder="Enter item brand.."
+        />
+        <span class="text-danger"></span>
+      </div>
+
+      <div class="col-2">
+        <label class="control-label pt-2" style="font-size: 20px"
+          >Quantity:</label
+        >
+      </div>
+      <div class="col-10 pb-3">
+        <div class="col-3">
+          <input
+            [ngClass]="{
+              'is-valid':
+                createItem.get('quantity').valid &&
+                (createItem.get('quantity').dirty ||
+                  createItem.get('quantity').touched ||
+                  isUpdateMode),
+              'is-invalid':
+                createItem.get('quantity').invalid &&
+                (createItem.get('quantity').dirty ||
+                  createItem.get('quantity').touched ||
+                  isUpdateMode)
+            }"
+            formControlName="quantity"
+            type="number"
+            class="form-control"
+            [(ngModel)]="item.quantity"
+            placeholder="Add quantity.."
+          />
+          <span
+            *ngIf="
+              !createItem.get('quantity').valid &&
+              createItem.get('quantity').touched
+            "
+            class="text-danger"
+            >Enter a valid Quantity!</span
+          >
+        </div>
+      </div>
+
+      <div class="col-12 d-flex justify-content-around">
+        <div class="col-5">
+          <a class="btn-primary btn form-control" (click)="backToItems()"
+            >Back to Items</a
+          >
+        </div>
+        <div class="col-5">
+          <input
+            [disabled]="!createItem.valid"
+            type="submit"
+            id="submit"
+            value="Confirm"
+            class="btn btn-success form-control"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

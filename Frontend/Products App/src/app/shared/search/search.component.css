@@ -1,0 +1,17 @@
+.input-border {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.button-border {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.btn-primary {
+  background-color: #0f4c75;
+  border-color: #0f4c75;
+}
+
+.btn-primary:hover:active {
+  background-color: #176b87;
+  border-color: #176b87;
+}

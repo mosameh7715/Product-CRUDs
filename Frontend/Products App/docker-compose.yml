@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./dist/supplement:/usr/share/nginx/html
+# version: "3"
+# services:
+#   supplement-angular:
+#     container_name: "supplement-angular-container"
+#     build: .
+#     ports:
+#       - "4200:4200"
+#     command: npm start
+#   web:
+#     image: nginx
+#     build:
+#       context: .
+#       dockerfile: dockerfile
+#     volumes:
+#       - ./templates:/etc/nginx/templates
+#       - ./nginx.conf:/etc/nginx/nginx.conf
+#       - ./dist:/usr/share/nginx/html
+#     ports:
+#       - "8080:80"

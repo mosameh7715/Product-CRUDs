@@ -1,0 +1,51 @@
+<div class="col">
+  <div class="card h-100 shadow-sm bg-light">
+    <a
+      class="my-card-link d-flex flex-column flex-grow-1 justify-content-between mb-auto"
+    >
+      <img
+        *ngIf="!item.imgUrl"
+        src="../../../assets/images/item1.jpg"
+        class="card-img-top mb-auto click-item"
+        alt="Fissure in Sandstone"
+        (click)="onGetSingleItem(item.id)"
+      />
+      <img
+        *ngIf="item.imgUrl"
+        [src]="imgUrl"
+        class="card-img-top mb-auto click-item"
+        alt="Fissure in Sandstone"
+        (click)="onGetSingleItem(item.id)"
+      />
+      <div class="card-body flex-grow-0 flex-shrink-0 p-2">
+        <h5
+          class="card-title fw-bold click-item"
+          (click)="onGetSingleItem(item.id)"
+        >
+          {{ item.name }}
+        </h5>
+        <p class="card-text lh-1">{{ item.description }}</p>
+        <h4>
+          <span class="badge bg-primary">{{ item.price }}&nbsp;&dollar;</span>
+        </h4>
+      </div>
+    </a>
+    <div class="d-flex align-self-center mb-3 mt-1">
+      <button
+        *ngIf="hasPermission"
+        type="button"
+        class="btn btn-success mb-1 me-5"
+        (click)="onUpdateItem()"
+      >
+        <span>
+          <i class="fa fa-pencil-square-o btn-success"></i>
+        </span>
+      </button>
+      <app-deleting-modal
+        *ngIf="hasPermission"
+        [type]="'item'"
+        [id]="item.id"
+      ></app-deleting-modal>
+    </div>
+  </div>
+</div>

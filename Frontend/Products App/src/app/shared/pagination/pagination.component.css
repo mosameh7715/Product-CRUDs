@@ -1,0 +1,96 @@
+/*body {
+    font-family: "Inter", sans-serif;
+    color: #343a40;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+}
+*/
+:root {
+  font-family: "Poppins";
+  --pagination-color-123: #0f4c75;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.paginationbtn.btn {
+  border: 1px solid #0f4c75;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon {
+  width: 24px;
+  height: 24px;
+  stroke: #0f4c75;
+}
+
+.paginationbtn.btn:hover {
+  background-color: #0f4c75;
+}
+
+.paginationbtn.btn:hover .btn-icon {
+  stroke: #fff;
+}
+
+/* .page-link:link,
+.page-link:visited  */
+.page-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: #343a40;
+  font-size: 18px;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-link:hover,
+.page-link:active,
+.page-link.page-link-current {
+  background-color: #0f4c75;
+  color: #fff;
+}
+
+.dots {
+  color: #0f4c75;
+}
+
+/* Apply this CSS only on screens with a maximum width of 767 pixels (typical mobile screen size) */
+@media screen and (max-width: 767px) {
+  .pagination li.page-item {
+    /* By default, hide all <li> elements */
+    display: none;
+  }
+
+  /* Show the <li> elements with the class 'show-on-mobile' */
+  .pagination .show-on-mobile {
+    display: block;
+  }
+
+  /* Hide the <li> elements with the class 'hide-on-mobile' */
+  .pagination .hide-on-mobile {
+    display: none;
+  }
+}
+
+.paginationbtn.btn a {
+  display: block; /* Make the <a> element a block-level element */
+  width: 100%;
+  height: 100%;
+  text-decoration: none; /* Remove default underline if needed */
+}

@@ -1,0 +1,66 @@
+<div class="pagination justify-content-center pt-3 pb-3">
+  <a
+    class="paginationbtn btn show-on-mobile"
+    [ngClass]="{ disabled: currentPage == 1 }"
+    (click)="onChangeCurrentPage(currentPage - 1)"
+    aria-label="Previous"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="btn-icon"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M15 19l-7-7 7-7"
+      />
+    </svg>
+  </a>
+
+  <a
+    *ngIf="startPage > 1"
+    (click)="onChangeCurrentPage(1)"
+    class="page-item hide-on-mobile page-link"
+    >1</a
+  >
+
+  <span *ngIf="startPage > 2" class="dots hide-on-mobile">...</span>
+
+  <a
+    *ngFor="let item of [].constructor(endPage - startPage); let i = index"
+    class="page-item hide-on-mobile page-link"
+    (click)="onChangeCurrentPage(i + startPage)"
+    [ngClass]="{ 'page-link-current': i + startPage == currentPage }"
+    >{{ i + startPage }}</a
+  >
+
+  <span *ngIf="endPage < totalPages" class="dots hide-on-mobile">...</span>
+  <a
+    *ngIf="endPage <= totalPages"
+    (click)="onChangeCurrentPage(totalPages)"
+    class="page-item hide-on-mobile page-link"
+    >{{ totalPages }}</a
+  >
+
+  <a
+    class="paginationbtn btn show-on-mobile"
+    (click)="onChangeCurrentPage(currentPage + 1)"
+    [ngClass]="{ disabled: currentPage == totalPages }"
+    aria-label="Next"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="btn-icon"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+  </a>
+</div>
